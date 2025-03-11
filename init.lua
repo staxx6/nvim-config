@@ -1,3 +1,7 @@
+-- general settings
+vim.opt.number = true
+
+-- start screen
 vim.api.nvim_create_autocmd('VimEnter', {
 	callback = function()
 		if vim.fn.argc() == 0 then -- Only if no file is opened

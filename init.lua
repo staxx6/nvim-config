@@ -1,3 +1,6 @@
+-- plugins
+require("config.lazy")
+
 -- general settings
 vim.opt.number = true
 

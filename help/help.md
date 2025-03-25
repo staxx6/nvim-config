@@ -32,3 +32,7 @@ N : Jump to previous hit
 ## Between Apps Stuff
 
 gg"+yG : Copy everything in clipboard. gg start; "+y in clipboard; G end of File
+
+## File Stuff
+
+@eunuch :Rename : File rename

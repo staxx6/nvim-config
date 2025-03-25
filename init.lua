@@ -11,6 +11,7 @@ vim.cmd("set hlsearch") -- highlight search
 vim.cmd("set ignorecase") -- for search
 
 -- start screen
+--[[
 vim.api.nvim_create_autocmd('VimEnter', {
 	callback = function()
 		if vim.fn.argc() == 0 then -- Only if no file is opened
@@ -46,3 +47,4 @@ vim.api.nvim_create_autocmd('VimEnter', {
 		end
 	end
 })
+]]

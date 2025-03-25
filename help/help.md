@@ -13,8 +13,22 @@ G : Moves to last line of file
 Enter new line
 o (small o): New line below and enters insert mode
 O (big o): New line above and enters insert mode
+yy : Copy line
+p : Paste under cursor
 
 
 ## Correct Stuff
 
 dd : Delete current line
+ce : Delete at cursor start to word end; Go in enter mode
+
+## Search Stuff
+
+/TEXT : Serach forward
+?TEXT : Search backwards
+n : Jump to next hit
+N : Jump to previous hit
+
+## Between Apps Stuff
+
+gg"+yG : Copy everything in clipboard. gg start; "+y in clipboard; G end of File

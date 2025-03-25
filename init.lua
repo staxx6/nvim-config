@@ -3,6 +3,12 @@ require("config.lazy")
 
 -- general settings
 vim.opt.number = true
+vim.cmd("set expandtab")
+vim.cmd("set tabstop=2")
+vim.cmd("set softtabstop=2")
+vim.cmd("set shiftwidth=2")
+vim.cmd("set hlsearch") -- highlight search
+vim.cmd("set ignorecase") -- for search
 
 -- start screen
 vim.api.nvim_create_autocmd('VimEnter', {

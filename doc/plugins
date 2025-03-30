@@ -1,0 +1,7 @@
+## Treeview
+
+nvim-tree
+chadtree
+oil.nvim - Buffer like changing of the tree
+telescpe-file-browser - The not tree view thing
+  should use fd for faster browser

@@ -1,6 +1,9 @@
 -- plugins
 require("config.lazy")
 
+-- keymaps
+require("config.keymaps")
+
 -- general settings
 vim.opt.number = true
 vim.cmd("set expandtab")

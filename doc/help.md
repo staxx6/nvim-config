@@ -8,6 +8,8 @@ gg : Moves the cursor to the first line of the file.
 ^ : Moves to the first non blank character of the line
 G : Moves to last line of file
 
+@telescope : see below
+
 ## Enter Stuff
 
 Enter new line
@@ -36,3 +38,7 @@ gg"+yG : Copy everything in clipboard. gg start; "+y in clipboard; G end of File
 ## File Stuff
 
 @eunuch :Rename : File rename
+
+## Telescope
+
+Launch with :Telescope file_browser

@@ -1,8 +1,24 @@
 local builtin = require("telescope.builtin")
 
+--
 -- Generel
-vim.keymap.set("n", "<leader>rr", ":source $MYVIMRC<CR>", { desc = "Reload Neovim Config" })
+--
 vim.g.mapleader = " "
+vim.keymap.set("n", "<leader>rr", ":source $MYVIMRC<CR>", { desc = "Reload Neovim Config" })
+
+vim.keymap.set('n', '<C-s>', ':w<CR>', { desc = 'Save File' })
+vim.keymap.set('i', '<C-s>', '<Esc>:w<CR>a', { desc = 'Save File' })
+
+-- Move line down
+vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", { desc = "Move line down", silent = true })
+
+-- Move line up
+vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", { desc = "Move line up", silent = true })
+
+-- Move selected lines (visual mode)
+vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move selection down", silent = true })
+vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move selection up", silent = true })
+
 
 -- Telescope
 -- Picker

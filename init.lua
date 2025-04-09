@@ -12,6 +12,7 @@ vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 vim.cmd("set hlsearch") -- highlight search
 vim.cmd("set ignorecase") -- for search
+vim.cmd("set statusline=%F")
 
 -- start screen
 --[[

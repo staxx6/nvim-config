@@ -14,6 +14,8 @@ vim.cmd("set hlsearch") -- highlight search
 vim.cmd("set ignorecase") -- for search
 vim.cmd("set statusline=%F")
 
+vim.o.guifont = "CaskaydiaCove Nerd Font:h12" -- not working?
+
 -- start screen
 --[[
 vim.api.nvim_create_autocmd('VimEnter', {

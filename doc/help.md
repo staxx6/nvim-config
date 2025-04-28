@@ -34,6 +34,7 @@ N : Jump to previous hit
 ## Between Apps Stuff
 
 gg"+yG : Copy everything in clipboard. gg start; "+y in clipboard; G end of File
+"+p : Paste from clipboard  
 
 ## File Stuff
 

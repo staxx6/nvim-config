@@ -16,6 +16,9 @@ vim.cmd("set statusline=%F")
 
 vim.o.guifont = "CaskaydiaCove Nerd Font:h12" -- not working?
 
+-- lsp
+vim.lsp.enable('luals');
+
 -- start screen
 --[[
 vim.api.nvim_create_autocmd('VimEnter', {

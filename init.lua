@@ -17,7 +17,55 @@ vim.cmd("set statusline=%F")
 vim.o.guifont = "CaskaydiaCove Nerd Font:h12" -- not working?
 
 -- lsp
+vim.g.mason_shell = "powershell.exe";
 vim.lsp.enable('luals');
+vim.lsp.enable('typescript');
+
+-- Autocompletion
+vim.o.completeopt = "menu,menuone,noinsert,noselect"
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(ev)
+    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    if client:supports_method('textDocument/completion') then
+      vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+    end
+
+    if client:supports_method('textDocument/documentHighlight') then
+      local autocmd = vim.api.nvim_create_autocmd
+      local augroup = vim.api.nvim_create_augroup('lsp_highlight', {clear = false})
+
+      vim.api.nvim_clear_autocmds({buffer = bufnr, group = augroup})
+
+      autocmd({'CursorHold'}, {
+        group = augroup,
+        buffer = ev.buf,
+        callback = vim.lsp.buf.document_highlight,
+      })
+
+      autocmd({'CursorMoved'}, {
+        group = augroup,
+        buffer = ev.buf,
+        callback = vim.lsp.buf.clear_references,
+      })
+    end
+  end,
+})
+
+vim.o.winborder = 'rounded'
+
+
+-- Scrolling
+
+vim.api.nvim_create_autocmd("BufReadPost", {
+  callback = function()
+    local mark = vim.api.nvim_buf_get_mark(0, '"')
+    local lcount = vim.api.nvim_buf_line_count(0)
+    if mark[1] > 0 and mark[1] <= lcount then
+      vim.api.nvim_win_set_cursor(0, mark)
+      vim.cmd("normal! zz") -- center cursor (adjust scroll)
+    end
+  end,
+})
 
 -- start screen
 --[[

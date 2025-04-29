@@ -43,3 +43,10 @@ gg"+yG : Copy everything in clipboard. gg start; "+y in clipboard; G end of File
 ## Telescope
 
 Launch with :Telescope file_browser
+
+## LSP 
+
+### Autocompletion
+
+Ctrl+n or Ctrl+p : Go through completion list
+

@@ -13,6 +13,13 @@ vim.cmd("set shiftwidth=2")
 vim.cmd("set hlsearch") -- highlight search
 vim.cmd("set ignorecase") -- for search
 vim.cmd("set statusline=%F")
+vim.api.nvim_set_hl(0, "Whitespace", { fg = "#5c6370" }) -- or any color you prefer
+vim.opt.list = true
+vim.opt.listchars = {
+  tab = "▸ ",
+  trail = "·",
+  nbsp = "␣",
+}
 
 vim.o.guifont = "CaskaydiaCove Nerd Font:h12" -- not working?
 
@@ -28,6 +35,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
     if client:supports_method('textDocument/completion') then
       vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+      vim.lsp.completion.winborder = 'rounded'
     end
 
     if client:supports_method('textDocument/documentHighlight') then

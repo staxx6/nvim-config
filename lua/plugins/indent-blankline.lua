@@ -4,9 +4,9 @@ return {
     main = "ibl",
     config = function()
       require("ibl").setup({
-        indent = {
-          char = "┊", -- or try "┊", "¦", "▏"
-        },
+        -- indent = {
+          -- char = "┊", -- or try "┊", "¦", "▏"
+        -- },
         scope = {
           enabled = true,
           show_start = true,

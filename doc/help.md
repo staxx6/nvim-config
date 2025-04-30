@@ -49,4 +49,13 @@ Launch with :Telescope file_browser
 ### Autocompletion
 
 Ctrl+n or Ctrl+p : Go through completion list
+Control + ] : jump to definition (use control + t to go back).
+Control + x : then Control + o will trigger code completion menu.
+Control + w : then d opens a floating window showing the error/warning message in the line under the cursor.
+[d and ]d : can be used to move the cursor to the previous and next errors/warnings of the current file.
+grn : renames all references of the symbol under the cursor.
+gra : shows a list of code actions available in the line under the cursor.
+grr : lists all the references of the symbol under the cursor.
+gri : lists all the implementations for the symbol under the cursor.
+Control + s : in insert mode displays the function signature of the symbol under the cursor. : Currently overwritten to save
 

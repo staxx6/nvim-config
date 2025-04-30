@@ -29,11 +29,7 @@ return {
       },
       extensions = {
         file_browser = {
-          mappings = {
-            n = {
---              ["<C-f>"] = require("telescope.actions").find_files,  -- Custom mapping to search files
-            }
-          }
+          cwd_to_path = false,
         }
       }
     })

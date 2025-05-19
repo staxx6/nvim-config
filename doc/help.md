@@ -7,6 +7,8 @@ gg : Moves the cursor to the first line of the file.
 0 (zero) : Moves to absolut beginning of the line
 ^ : Moves to the first non blank character of the line
 G : Moves to last line of file
+$ : Moves to line end
+
 
 @telescope : see below
 

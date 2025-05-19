@@ -1,0 +1,9 @@
+--type-add
+ng:*.{html,css,ts,scss}*
+--glob
+!*.d.ts
+
+#rg --type-add 'ng:*.{html,css,ts,scss}'
+
+--smart-case
+--hidden

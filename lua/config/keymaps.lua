@@ -26,10 +26,18 @@ vim.keymap.set('n', '<leader>fb', ':Telescope file_browser<CR>', { desc = 'Open 
 
 -- Picker
 vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find Files" })
-vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Live Grep" })
+-- vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Live Grep" })
 -- vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find Buffers" })
+vim.keymap.set("n", "<leader>fg", function()
+  require("telescope").extensions.live_grep_args.live_grep_args()
+end, { desc = "Live Grep with Args" })
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Help Tags" })
 
 
 -- Autocomplete
 vim.keymap.set("i", "<C-e>", "<C-x><C-o>", { noremap = true, silent = true })
+
+-- lsp
+vim.keymap.set("n", "<leader>ft", function()
+  vim.lsp.buf.format()
+end, { desc = "Format file with lsp"})

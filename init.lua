@@ -20,6 +20,7 @@ vim.opt.listchars = {
   trail = "·",
   nbsp = "␣",
 }
+vim.opt.clipboard = "unnamedplus" -- share windows and nvim clipboard
 
 vim.o.guifont = "CaskaydiaCove Nerd Font:h12" -- not working?
 

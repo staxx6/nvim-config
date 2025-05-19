@@ -1,5 +1,9 @@
 # Other Setup
 
+# Needs to work
+
+zig : choco install zig
+
 Like setup ripgrep with one filetypes
 
 ## ripgre rg

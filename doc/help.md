@@ -8,23 +8,27 @@ gg : Moves the cursor to the first line of the file.
 ^ : Moves to the first non blank character of the line
 G : Moves to last line of file
 $ : Moves to line end
+f{char} F{char} : Moves the cursor to the first {char} to the (f)right (F)feft of the line
+    ; or , : (;)Repeats (,) Repeats opposite direction
 
 
 @telescope : see below
 
 ## Enter Stuff
 
-Enter new line
+a : Append after cursor
+A : Append on line end
 o (small o): New line below and enters insert mode
 O (big o): New line above and enters insert mode
 yy : Copy line
 p : Paste under cursor
 
-
 ## Correct Stuff
 
 dd : Delete current line
 ce : Delete at cursor start to word end; Go in enter mode
+cw : Delete the word under the cursor and go in enter mode
+s : delete char at current cursor position and enters the input mode
 
 ## Search Stuff
 
@@ -32,6 +36,7 @@ ce : Delete at cursor start to word end; Go in enter mode
 ?TEXT : Search backwards
 n : Jump to next hit
 N : Jump to previous hit
+* : Serach for the word under the cursor. n/N for next hit
 
 ## Between Apps Stuff
 

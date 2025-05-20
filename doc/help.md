@@ -61,3 +61,12 @@ grr : lists all the references of the symbol under the cursor.
 gri : lists all the implementations for the symbol under the cursor.
 Control + s : in insert mode displays the function signature of the symbol under the cursor. : Currently overwritten to save
 
+### dot command
+
+. : Repeat last command
+
+After input the dot command repeats everything entered in the input mode.
+
+### Change format
+
+`>G` : Increasses indentation

@@ -23,6 +23,12 @@ vim.opt.listchars = {
 vim.opt.clipboard = "unnamedplus" -- share windows and nvim clipboard
 
 vim.o.guifont = "CaskaydiaCove Nerd Font:h12" -- not working?
+vim.opt.guicursor = "n-v-c-sm:block-blinkon500,i-ci-ve:ver25-blinkon500,r-cr-o:hor20" -- Cursor blinking
+vim.opt.cursorline = true -- highlights current line
+-- to have less highlight with matching pairs
+vim.cmd [[
+  highlight MatchParen guibg=#676666 guifg=none cterm=bold
+]]
 
 -- lsp
 vim.g.mason_shell = "powershell.exe";

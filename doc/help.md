@@ -51,9 +51,7 @@ gg"+yG : Copy everything in clipboard. gg start; "+y in clipboard; G end of File
 
 Launch with :Telescope file_browser
 
-## LSP 
-
-### Autocompletion
+### LSP Autocompletion
 
 Ctrl+n or Ctrl+p : Go through completion list
 Control + ] : jump to definition (use control + t to go back).

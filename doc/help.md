@@ -4,12 +4,14 @@
 
 gg : Moves the cursor to the first line of the file.
 :NUMBER : Goes to line number
-0 (zero) : Moves to absolut beginning of the line
+0 (zero) : Moves to absolute beginning of the line
 ^ : Moves to the first non blank character of the line
 G : Moves to last line of file
 $ : Moves to line end
-f{char} F{char} : Moves the cursor to the first {char} to the (f)right (F)feft of the line
+f{char} F{char} : Moves the cursor to the first {char} to the (f)right (F)left of the line
     ; or , : (;)Repeats (,) Repeats opposite direction
+w : Next word
+b : Previous word
 
 
 @telescope : see below
@@ -32,11 +34,11 @@ s : delete char at current cursor position and enters the input mode
 
 ## Search Stuff
 
-/TEXT : Serach forward
+/TEXT : Search forward
 ?TEXT : Search backwards
 n : Jump to next hit
 N : Jump to previous hit
-* : Serach for the word under the cursor. n/N for next hit
+* : Search for the word under the cursor. n/N for next hit
 
 ## Between Apps Stuff
 
@@ -72,4 +74,10 @@ After input the dot command repeats everything entered in the input mode.
 
 ### Change format
 
-`>G` : Increasses indentation
+`>G` : Increases indentation
+
+### Spellcheck
+
+z= : Suggested fix
+zg : Save word
+zw : Delete word

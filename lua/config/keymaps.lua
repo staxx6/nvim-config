@@ -23,6 +23,15 @@ vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move selection up", s
 -- Telescope
 
 vim.keymap.set('n', '<leader>fb', ':Telescope file_browser<CR>', { desc = 'Open File Browser' })
+vim.keymap.set('n', '<leader>;;', function()
+  require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+    previewer = false,
+    winblend = 10,
+  }))
+end, { desc = 'Fuzzy search in current buffer' })
+vim.keymap.set("n", "<leader>/", function()
+  require("telescope.builtin").current_buffer_fuzzy_find()
+end, { desc = "Fuzzy find in current buffer" })
 
 -- Picker
 vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find Files" })
@@ -32,6 +41,7 @@ vim.keymap.set("n", "<leader>fg", function()
   require("telescope").extensions.live_grep_args.live_grep_args()
 end, { desc = "Live Grep with Args" })
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Help Tags" })
+vim.keymap.set("n", "<leader>km", "<cmd>Telescope keymaps<CR>", { desc = "Search keymaps" })
 
 
 -- Autocomplete
@@ -41,3 +51,7 @@ vim.keymap.set("i", "<C-e>", "<C-x><C-o>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>ft", function()
   vim.lsp.buf.format()
 end, { desc = "Format file with lsp"})
+
+-- oil
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory"})
+vim.keymap.set("n", "<space>-", require("oil").toggle_float, { desc = "Open parent directory FLOAT"})

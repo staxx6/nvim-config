@@ -20,7 +20,7 @@ return {
         selection_caret = " ", -- Icon for the selected file/folder
         entry_prefix = "  ", -- Extra indentation for entries
         initial_mode = "insert", -- Start in insert mode for the prompt
-        layout_strategy = "horizontal", -- Layout style
+        layout_strategy = "vertical", -- Layout style
         layout_config = {
           width = 0.75, -- Set the width of the Telescope window
           height = 0.8, -- Set the height of the Telescope window

@@ -22,7 +22,10 @@ return {
         initial_mode = "insert", -- Start in insert mode for the prompt
         layout_strategy = "vertical", -- Layout style
         layout_config = {
-          width = 0.75, -- Set the width of the Telescope window
+          vertical = { width = 0.9 }
+        },
+        layout_configX = {
+          width = 0.85, -- Set the width of the Telescope window
           height = 0.8, -- Set the height of the Telescope window
         },
         color_devicons = true,

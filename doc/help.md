@@ -11,7 +11,7 @@ $ : Moves to line end
 f{char} F{char} : Moves the cursor to the first {char} to the (f)right (F)left of the line
     ; or , : (;)Repeats (,) Repeats opposite direction
 w : Next word
-b : Previous word
+b : Previous word or beginning of word if inside
 
 
 @telescope : see below
@@ -28,6 +28,7 @@ p : Paste under cursor
 ## Correct Stuff
 
 dd : Delete current line
+diw or daw : delete inner word; delete 'a' word (with whitespace after word)
 ce : Delete at cursor start to word end; Go in enter mode
 cw : Delete the word under the cursor and go in enter mode
 s : delete char at current cursor position and enters the input mode
@@ -39,6 +40,11 @@ s : delete char at current cursor position and enters the input mode
 n : Jump to next hit
 N : Jump to previous hit
 * : Search for the word under the cursor. n/N for next hit
+
+## Numver Stuff
+
+Ctrl + a : increment   (10<C-a> for add 10)
+Ctrl + x : decrement
 
 ## Between Apps Stuff
 

@@ -45,7 +45,7 @@ vim.keymap.set("n", "<leader>km", "<cmd>Telescope keymaps<CR>", { desc = "Search
 
 
 -- Autocomplete
-vim.keymap.set("i", "<C-e>", "<C-x><C-o>", { noremap = true, silent = true })
+vim.keymap.set("i", "<C-f>", "<C-x><C-o>", { noremap = true, silent = true, desc = "Auto completion" })
 
 -- lsp
 vim.keymap.set("n", "<leader>ft", function()

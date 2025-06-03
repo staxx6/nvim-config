@@ -87,3 +87,7 @@ After input the dot command repeats everything entered in the input mode.
 z= : Suggested fix
 zg : Save word
 zw : Delete word
+
+## Nvim self
+
+:restart : To restart nvim itself for config changes. Not yet in the version.

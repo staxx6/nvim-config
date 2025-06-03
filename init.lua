@@ -16,11 +16,14 @@ vim.cmd("set statusline=%F")
 vim.api.nvim_set_hl(0, "Whitespace", { fg = "#5c6370" }) -- or any color you prefer
 vim.opt.list = true
 vim.opt.listchars = {
-  tab = "▸ ",
+  tab = "» ",
   trail = "·",
   nbsp = "␣",
 }
-vim.opt.clipboard = "unnamedplus" -- share windows and nvim clipboard
+-- share windows and nvim clipboard
+vim.schedule(function()
+  vim.o.clipboard = 'unnamedplus'
+end)
 
 vim.o.guifont = "CaskaydiaCove Nerd Font:h12" -- not working?
 vim.opt.guicursor = "n-v-c-sm:block-blinkon500,i-ci-ve:ver25-blinkon500,r-cr-o:hor20" -- Cursor blinking

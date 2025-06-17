@@ -85,6 +85,14 @@ vim.api.nvim_create_autocmd("BufReadPost", {
   end,
 })
 
+-- Auto commenting wrap
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  callback = function()
+    vim.opt_local.formatoptions:remove({ "c", "r", "o" })
+  end,
+})
+
 -- start screen
 --[[
 vim.api.nvim_create_autocmd('VimEnter', {

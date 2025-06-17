@@ -53,5 +53,10 @@ vim.keymap.set("n", "<leader>ft", function()
 end, { desc = "Format file with lsp"})
 
 -- oil
-vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory"})
-vim.keymap.set("n", "<space>-", require("oil").toggle_float, { desc = "Open parent directory FLOAT"})
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Oil : Open parent directory"})
+vim.keymap.set("n", "<space>-", require("oil").toggle_float, { desc = "Oil : Open parent directory FLOAT"})
+
+-- git
+vim.keymap.set('n', '<leader>gh', function()
+  require('gitsigns').preview_hunk()
+end, { desc = "Preview Git hunk under cursor" })

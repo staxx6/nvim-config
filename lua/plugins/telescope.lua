@@ -8,6 +8,8 @@ return {
       -- This will not install any breaking changes.
       -- For major updates, this must be adjusted manually.
       version = "^1.0.0",
+      { 'nvim-telescope/telescope-ui-select.nvim' }, -- use telescope for other selecion lists plugins or nvim own lists
+      { 'nvim-tree/nvim-web-devicons', enabled = true } -- better icons NF onlyled = true
     }
   },
   config = function()
@@ -16,7 +18,7 @@ return {
     local lga_actions = require("telescope-live-grep-args.actions")
     telescope.setup({
       defaults = {
-        prompt_prefix = " ", -- Icon for the prompt
+        -- prompt_prefix = " ", -- Icon for the prompt
         selection_caret = " ", -- Icon for the selected file/folder
         entry_prefix = "  ", -- Extra indentation for entries
         initial_mode = "insert", -- Start in insert mode for the prompt
@@ -33,6 +35,7 @@ return {
           "node_modules",
           ".git"
         },
+        debounce = 1000,
         mappings = {
           i = {
             ["<C-v>"] = actions.select_vertical,

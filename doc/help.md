@@ -28,13 +28,19 @@ p : Paste under cursor
 
 ## Correct Stuff
 
+**Normal mode**
+
 dd : Delete current line
 diw or daw : delete inner word; delete 'a' word (with whitespace after word)
 ce : Delete at cursor start to word end; Go in enter mode
 cw : Delete the word under the cursor and go in enter mode
 s : delete char at current cursor position and enters the input mode
 
+** Insert mode **
+
+
 ## Search Stuff
+
 
 /TEXT : Search forward
 ?TEXT : Search backwards

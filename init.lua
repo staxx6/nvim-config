@@ -20,6 +20,16 @@ vim.opt.listchars = {
   trail = "·",
   nbsp = "␣",
 }
+
+-- swap / undofile / autosave (plugin)
+vim.opt.swapfile = false
+vim.opt.undofile = true
+
+-- diff
+if vim.loop.os_uname().sysname == "Windows_NT" then
+vim.g.undotree_DiffCommand = "FC"
+end
+
 -- share windows and nvim clipboard
 vim.schedule(function()
   vim.o.clipboard = 'unnamedplus'

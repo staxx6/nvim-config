@@ -8,6 +8,7 @@ vim.keymap.set("n", "<leader>rr", ":source $MYVIMRC<CR>", { desc = "Reload Neovi
 
 vim.keymap.set('n', '<C-s>', ':w<CR>', { desc = 'Save File' })
 vim.keymap.set('i', '<C-s>', '<Esc>:w<CR>a', { desc = 'Save File' })
+vim.keymap.set('n', '<leader-w>', '<Esc>:w<CR>a', { desc = 'Save File 2' })
 
 -- Move line down
 vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", { desc = "Move line down", silent = true })
@@ -60,3 +61,6 @@ vim.keymap.set("n", "<space>-", require("oil").toggle_float, { desc = "Oil : Ope
 vim.keymap.set('n', '<leader>gh', function()
   require('gitsigns').preview_hunk()
 end, { desc = "Preview Git hunk under cursor" })
+
+-- undotree
+vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)

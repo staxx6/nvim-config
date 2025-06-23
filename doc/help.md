@@ -27,6 +27,9 @@ O (big o): New line above and enters insert mode
 yy : Copy line
 p : Paste under cursor
 
+Ctrl + o : Enter insert normal mode (normal mode for one action)
+(insert) Ctrl + r : Enter from register / paste from register following up with 0 for register 0 or + sys clipboard. PluginX helps for preview!
+
 ## Correct Stuff
 
 **Normal mode**
@@ -39,9 +42,11 @@ s : delete char at current cursor position and enters the input mode
 
 ** Insert mode **
 
+Ctrl + h : Delete one char back (like backspace)
+Ctrl + w : Delete back one word
+Ctrl + u : Delete back to start of line
 
 ## Search Stuff
-
 
 /TEXT : Search forward
 ?TEXT : Search backwards
@@ -66,6 +71,15 @@ gg"+yG : Copy everything in clipboard. gg start; "+y in clipboard; G end of File
 ## Telescope
 
 Launch with :Telescope file_browser
+
+## Move screen
+
+zz :  Center screen to current cursor position
+
+## Record
+
+q + Register : Start recording
+q : Leave : End recording
 
 ### LSP Autocompletion
 

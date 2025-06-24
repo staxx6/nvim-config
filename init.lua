@@ -27,7 +27,7 @@ vim.opt.undofile = true
 
 -- diff
 if vim.loop.os_uname().sysname == "Windows_NT" then
-vim.g.undotree_DiffCommand = "FC"
+  vim.g.undotree_DiffCommand = "FC"
 end
 
 -- share windows and nvim clipboard
@@ -81,6 +81,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 vim.o.winborder = 'rounded'
 
+-- TODO: test
+-- FIX: test
 
 -- Scrolling
 

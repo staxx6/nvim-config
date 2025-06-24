@@ -43,6 +43,7 @@ vim.keymap.set("n", "<leader>fg", function()
 end, { desc = "Live Grep with Args" })
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Help Tags" })
 vim.keymap.set("n", "<leader>km", "<cmd>Telescope keymaps<CR>", { desc = "Search keymaps" })
+vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = 'Find existing buffers' })
 
 
 -- Autocomplete

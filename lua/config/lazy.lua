@@ -36,4 +36,5 @@ require("lazy").setup({
     enabled = true,
     frequency = 86400 -- 24 Hours
   },
+  
 })

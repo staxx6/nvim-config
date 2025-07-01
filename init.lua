@@ -49,6 +49,7 @@ vim.lsp.enable('luals');
 vim.lsp.enable('typescript');
 
 -- Autocompletion
+--[[
 vim.o.completeopt = "menu,menuone,noinsert,noselect"
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(ev)
@@ -78,8 +79,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
   end,
 })
+]]--
 
-vim.o.winborder = 'rounded'
+vim.o.winborder = 'none'
 
 -- TODO: test
 -- FIX: test

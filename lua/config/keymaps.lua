@@ -47,7 +47,7 @@ vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = 'Find existing
 
 
 -- Autocomplete
-vim.keymap.set("i", "<C-f>", "<C-x><C-o>", { noremap = true, silent = true, desc = "Auto completion" })
+-- vim.keymap.set("i", "<C-f>", "<C-x><C-o>", { noremap = true, silent = true, desc = "Auto completion" })
 
 -- lsp
 vim.keymap.set("n", "<leader>ft", function()

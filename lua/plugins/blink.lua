@@ -4,13 +4,21 @@ return {
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
   opts = {
-    keymap = { preset = 'default' },
-    appearence = { nerd_font_variant = 'mono' },
-    completion = { documentation = { auto_show = false } },
-    sources = {
-      'lsp', 'path', 'snippets', 'buffer'
+    keymap = { 
+      preset = 'default',
+      ['<C-f>'] = { 'show' }
     },
+    appearance = { nerd_font_variant = 'mono' },
+    completion = {
+      documentation = {
+        auto_show = true,
+     } 
+    },
+    --[[ sources = {
+      'lsp', 'path', 'snippets', 'buffer'
+    }, ]]--
     fuzzy = { implementation = 'prefer_rust_with_warning' }
   },
-  opts_extend = { 'sources.default' }
+  opts_extend = { 'sources.default' },
+  config = true
 }

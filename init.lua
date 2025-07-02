@@ -10,13 +10,13 @@ vim.cmd("set expandtab")
 vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
-vim.cmd("set hlsearch") -- highlight search
-vim.cmd("set ignorecase") -- for search
+vim.cmd("set hlsearch")                                  -- highlight search
+vim.cmd("set ignorecase")                                -- for search
 vim.cmd("set statusline=%F")
 vim.api.nvim_set_hl(0, "Whitespace", { fg = "#5c6370" }) -- or any color you prefer
 vim.opt.list = true
 vim.opt.listchars = {
-  tab = "» ",
+  tab = "▏ ",
   trail = "·",
   nbsp = "␣",
 }
@@ -30,14 +30,33 @@ if vim.loop.os_uname().sysname == "Windows_NT" then
   vim.g.undotree_DiffCommand = "FC"
 end
 
+-- underline
+vim.diagnostic.config({
+  underline = true,   -- or configure severity
+  virtual_text = true,
+  signs = true,
+})
+vim.cmd([[
+  highlight DiagnosticUnderlineError gui=underline guisp=#FF5555
+  highlight DiagnosticUnderlineWarn  gui=underline guisp=Orange
+  highlight DiagnosticUnderlineHint  gui=underline guisp=Grey
+  highlight DiagnosticUnderlineInfo  gui=underline guisp=LightBlue
+]])
+
+-- fold
+vim.o.foldcolumn = '1' -- '0' is not bad
+vim.o.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
+
 -- share windows and nvim clipboard
 vim.schedule(function()
   vim.o.clipboard = 'unnamedplus'
 end)
 
-vim.o.guifont = "CaskaydiaCove Nerd Font:h12" -- not working?
+vim.o.guifont = "CaskaydiaCove Nerd Font:h12"                                         -- not working?
 vim.opt.guicursor = "n-v-c-sm:block-blinkon500,i-ci-ve:ver25-blinkon500,r-cr-o:hor20" -- Cursor blinking
-vim.opt.cursorline = true -- highlights current line
+vim.opt.cursorline = true                                                             -- highlights current line
 -- to have less highlight with matching pairs
 vim.cmd [[
   highlight MatchParen guibg=#676666 guifg=none cterm=bold
@@ -46,7 +65,8 @@ vim.cmd [[
 -- lsp
 vim.g.mason_shell = "powershell.exe";
 vim.lsp.enable('luals');
-vim.lsp.enable('typescript');
+vim.lsp.enable('typescript'); --  Should be suitble for js too
+vim.lsp.enable('json');
 
 -- Autocompletion
 --[[
@@ -79,7 +99,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
   end,
 })
-]]--
+]] --
 
 vim.o.winborder = 'none'
 

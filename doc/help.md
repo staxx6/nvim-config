@@ -14,6 +14,9 @@ f{char} F{char} : Moves the cursor to the first {char} to the (f)right (F)left o
     ; or , : (;)Repeats (,) Repeats opposite direction
 w : Next word
 b : Previous word or beginning of word if inside
+% : To matching bracket
+
+Ctrl + o or Ctrl + i : Jump to last/previous position
 
 
 @telescope : see below
@@ -54,6 +57,15 @@ n : Jump to next hit
 N : Jump to previous hit
 * : Search for the word under the cursor. n/N for next hit
 
+## Move screen
+
+zz :  Center screen to current cursor position
+
+## Fold with ufo
+
+zc or zv : folds under curser or unfolds
+zC or zV : folds all or unfoldd all
+
 ## Numver Stuff
 
 Ctrl + a : increment   (10<C-a> for add 10)
@@ -72,27 +84,29 @@ gg"+yG : Copy everything in clipboard. gg start; "+y in clipboard; G end of File
 
 Launch with :Telescope file_browser
 
-## Move screen
-
-zz :  Center screen to current cursor position
-
 ## Record
 
 q + Register : Start recording
 q : Leave : End recording
 
-### LSP Autocompletion
+### LSP
 
 Ctrl+n or Ctrl+p : Go through completion list
 Control + ] : jump to definition (use control + t to go back).
 Control + x : then Control + o will trigger code completion menu.
-Control + w : then d opens a floating window showing the error/warning message in the line under the cursor.
+
+Control + w d : opens a floating window showing the error/warning message in the line under the cursor.
 [d and ]d : can be used to move the cursor to the previous and next errors/warnings of the current file.
+
 grn : renames all references of the symbol under the cursor.
 gra : shows a list of code actions available in the line under the cursor.
 grr : lists all the references of the symbol under the cursor.
 gri : lists all the implementations for the symbol under the cursor.
 Control + s : in insert mode displays the function signature of the symbol under the cursor. : Currently overwritten to save
+
+#### Blink
+
+Ctrl + y : Accept current completion.
 
 ### dot command
 

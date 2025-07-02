@@ -4,13 +4,11 @@ return {
     main = "ibl",
     config = function()
       require("ibl").setup({
-        -- indent = {
-          -- char = "┊", -- or try "┊", "¦", "▏"
+        --indent = {
+        -- char = "·", -- or try "┊", "¦", "▏"
         -- },
         scope = {
-          enabled = true,
-          show_start = true,
-          show_end = true,
+          enabled = false,
           highlight = { "Function", "Label" }, -- tweak colors
         },
       })

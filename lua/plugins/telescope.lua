@@ -20,15 +20,13 @@ return {
       defaults = {
         -- prompt_prefix = " ", -- Icon for the prompt
         selection_caret = " ", -- Icon for the selected file/folder
-        entry_prefix = "  ", -- Extra indentation for entries
+        entry_prefix = "  ", -- Extra indentation for entries. selection makes spaces
         initial_mode = "insert", -- Start in insert mode for the prompt
         layout_strategy = "vertical", -- Layout style
         layout_config = {
-          vertical = { width = 0.9 }
-        },
-        layout_configX = {
-          width = 0.85, -- Set the width of the Telescope window
-          height = 0.8, -- Set the height of the Telescope window
+          width = 0.8,
+          height = 0.8,
+          prompt_position = 'top'
         },
         color_devicons = true,
         file_ignore_patterns = {
@@ -49,6 +47,7 @@ return {
         find_files = {
           theme = "dropdown", -- Set a nice dropdown theme for file search
           hidden = true,
+          path_display = { 'filename_first' }
         },
         live_grep = {
           theme = "ivy", -- Use the ivy theme for live grep
@@ -58,11 +57,17 @@ return {
         },
       },
       extensions = {
+        ---@module 'frecency'
+        ---@type FrecencyOpts
+        frecency = {
+          theme = 'dropdown',
+          path_display = { 'filename_first' },
+        },
         live_grep_args = {
           auto_quoting = true,
           mappings = { -- extend mappings
-            i = {
               ["<C-k>"] = lga_actions.quote_prompt(),
+            i = {
               ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
               -- freeze the current list and start a fuzzy search in the frozen list
               ["<C-space>"] = lga_actions.to_fuzzy_refine,

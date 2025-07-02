@@ -11,14 +11,14 @@ vim.keymap.set('i', '<C-s>', '<Esc>:w<CR>a', { desc = 'Save File' })
 vim.keymap.set('n', '<leader-w>', '<Esc>:w<CR>a', { desc = 'Save File 2' })
 
 -- Move line down
-vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", { desc = "Move line down", silent = true })
+vim.keymap.set("n", "<C-j>", ":m .+1<CR>==", { desc = "Move line down", silent = true })
 
 -- Move line up
-vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", { desc = "Move line up", silent = true })
+vim.keymap.set("n", "<C-k>", ":m .-2<CR>==", { desc = "Move line up", silent = true })
 
 -- Move selected lines (visual mode)
-vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move selection down", silent = true })
-vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move selection up", silent = true })
+vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv", { desc = "Move selection down", silent = true })
+vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv", { desc = "Move selection up", silent = true })
 
 
 -- Telescope
@@ -35,7 +35,8 @@ vim.keymap.set("n", "<leader>/", function()
 end, { desc = "Fuzzy find in current buffer" })
 
 -- Picker
-vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find Files" })
+--vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find Files" })
+vim.keymap.set("n", "<leader>ff", ':Telescope frecency workspace=CWD<CR>', { desc = "Find Files" })
 -- vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Live Grep" })
 -- vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find Buffers" })
 vim.keymap.set("n", "<leader>fg", function()

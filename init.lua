@@ -10,8 +10,9 @@ vim.cmd("set expandtab")
 vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
-vim.cmd("set hlsearch")                                  -- highlight search
-vim.cmd("set ignorecase")                                -- for search
+vim.cmd("set hlsearch") -- highlight search
+vim.cmd("set ignorecase") -- for search
+vim.cmd("set smartcase")
 vim.cmd("set statusline=%F")
 vim.api.nvim_set_hl(0, "Whitespace", { fg = "#5c6370" }) -- or any color you prefer
 vim.opt.list = true
@@ -32,7 +33,7 @@ end
 
 -- underline
 vim.diagnostic.config({
-  underline = true,   -- or configure severity
+  underline = true, -- or configure severity
   virtual_text = true,
   signs = true,
 })

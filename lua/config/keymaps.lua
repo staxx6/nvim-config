@@ -26,7 +26,7 @@ vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv", { desc = "Move selection up", s
 vim.keymap.set('n', '<leader>fb', ':Telescope file_browser<CR>', { desc = 'Open File Browser' })
 vim.keymap.set('n', '<leader>;;', function()
   require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-    previewer = false,
+    previewer = true,
     winblend = 10,
   }))
 end, { desc = 'Fuzzy search in current buffer' })

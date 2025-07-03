@@ -47,7 +47,10 @@ return {
         find_files = {
           theme = "dropdown", -- Set a nice dropdown theme for file search
           hidden = true,
-          path_display = { 'filename_first' }
+          -- path_display = { 'filename_first' }
+          path_display = function ()
+            return "test"
+          end
         },
         live_grep = {
           theme = "ivy", -- Use the ivy theme for live grep
@@ -61,7 +64,12 @@ return {
         ---@type FrecencyOpts
         frecency = {
           theme = 'dropdown',
-          path_display = { 'filename_first' },
+          show_filter_column = false,
+          path_display = { 'truncate' },
+          -- path_display = { 'filename_first' },
+          -- path_display = function (_, _)
+          --  return {"test"}
+          -- end
         },
         live_grep_args = {
           auto_quoting = true,

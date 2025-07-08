@@ -19,6 +19,10 @@ return {
     local lga_actions = require("telescope-live-grep-args.actions")
     telescope.setup({
       defaults = {
+
+        file_sorter = require('telescope.sorters').get_fzf_sorter,
+        generic_sorter = require('telescope.sorters').get_fzf_sorter,
+
         prompt_prefix = "  ", -- Icon for the prompt
         selection_caret = " ", -- Icon for the selected file/folder
         entry_prefix = "  ", -- Extra indentation for entries. selection makes spaces

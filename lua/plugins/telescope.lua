@@ -20,8 +20,10 @@ return {
     telescope.setup({
       defaults = {
 
-        file_sorter = require('telescope.sorters').get_fzf_sorter,
-        generic_sorter = require('telescope.sorters').get_fzf_sorter,
+        -- file_sorter = require('telescope.sorters').get_fzf_sorter,
+        -- generic_sorter = require('telescope.sorters').get_fzf_sorter,
+        file_sorter = require('telescope').extensions.fzf.native_fzf_sorter(),
+        generic_sorter = require('telescope').extensions.fzf.native_fzf_sorter(),
 
         prompt_prefix = "  ", -- Icon for the prompt
         selection_caret = " ", -- Icon for the selected file/folder
@@ -45,6 +47,7 @@ return {
           preview_cutoff = 1,
           -- preview_height = 0.4,
         },
+        -- preview = true,
         color_devicons = true,
         file_ignore_patterns = {
           "node_modules",
@@ -69,7 +72,7 @@ return {
             return "test"
           end
         },
-        live_grep = {
+        live_grep_args = {
           theme = "ivy", -- Use the ivy theme for live grep
           additional_args = function()
             return { "--hidden", "--smart-case", "--with-filename", "--line-number" }
@@ -88,8 +91,8 @@ return {
         live_grep_args = {
           auto_quoting = true,
           mappings = { -- extend mappings
-            ["<C-k>"] = lga_actions.quote_prompt(),
             i = {
+              ["<C-k>"] = lga_actions.quote_prompt(),
               ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
               -- freeze the current list and start a fuzzy search in the frozen list
               ["<C-space>"] = lga_actions.to_fuzzy_refine,

@@ -3,7 +3,12 @@ return {
   build = ":TSUpdate", -- auto-update parsers
   event = { "BufReadPost", "BufNewFile" }, -- load treesitter when you open a file
   config = function()
-    require("nvim-treesitter.install").compilers = { "zig" }
+    local is_windows = vim.loop.os_uname().sysname == "Windows_NT"
+
+    if is_windows then
+      require("nvim-treesitter.install").compilers = { "zig" }
+    end
+
     require("nvim-treesitter.configs").setup({
       -- parsers you want installed
       ensure_installed = { "lua", "python", "javascript", "html", "css", "bash", "json", "markdown", "typescript", "cpp"}, 

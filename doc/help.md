@@ -33,6 +33,9 @@ p : Paste under cursor
 Ctrl + o : Enter insert normal mode (normal mode for one action)
 (insert) Ctrl + r : Enter from register / paste from register following up with 0 for register 0 or + sys clipboard. PluginX helps for preview!
 
+gi : go to last insert position and enter insert mode
+g; and g: : Goes through the change list
+
 ## Correct Stuff
 
 **Normal mode**
@@ -42,6 +45,7 @@ diw or daw : delete inner word; delete 'a' word (with whitespace after word)
 ce : Delete at cursor start to word end; Go in enter mode
 cw : Delete the word under the cursor and go in enter mode
 s : delete char at current cursor position and enters the input mode
+r : Replace char. Remove char, enter insert mode, leave insert mode
 
 ** Insert mode **
 
@@ -55,7 +59,7 @@ Ctrl + u : Delete back to start of line
 ?TEXT : Search backwards
 n : Jump to next hit
 N : Jump to previous hit
-* : Search for the word under the cursor. n/N for next hit
+* and # : Search for the word under the cursor. n/N for next hit. # backward
 
 ## Move screen
 

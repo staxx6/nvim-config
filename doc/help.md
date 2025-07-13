@@ -16,8 +16,12 @@ w : Next word
 b : Previous word or beginning of word if inside
 % : To matching bracket
 
-Ctrl + o or Ctrl + i : Jump to last/previous position
+---> Ctrl + o or Ctrl + i : Jump to last/previous position
 
+**Buffer list**
+[b or ]b : Go next/prev buffer
+leader-space : Show buffer list @bufferlist
+leader-1-9 : Go to tab @bufferlist
 
 @telescope : see below
 
@@ -55,11 +59,20 @@ Ctrl + u : Delete back to start of line
 
 ## Search Stuff
 
+:noh : clear last highlight
+
 /TEXT : Search forward
 ?TEXT : Search backwards
-n : Jump to next hit
-N : Jump to previous hit
+n and N : Jump to next/previous hit
 * and # : Search for the word under the cursor. n/N for next hit. # backward
+
+## Visual mode
+
+v : Enter char visual mode ; Change to V to expand line selection
+V : Enter line wise visual mode ; Change to v to shrink char selection
+C-v : Enter block wise visual mode ; You get it
+gv : Reselect last visual selection
+o : Jump to other end of the slection
 
 ## Move screen
 

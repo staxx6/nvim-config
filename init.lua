@@ -13,8 +13,9 @@ vim.cmd("set shiftwidth=2")
 vim.cmd("set hlsearch") -- highlight search
 vim.cmd("set ignorecase") -- for search
 vim.cmd("set smartcase")
-vim.cmd("set statusline=%F")
+-- vim.cmd("set statusline=%F")
 vim.api.nvim_set_hl(0, "Whitespace", { fg = "#5c6370" }) -- or any color you prefer
+vim.opt.termguicolors = true
 vim.opt.list = true
 vim.opt.listchars = {
   tab = "▏ ",

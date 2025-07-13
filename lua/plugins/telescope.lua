@@ -39,6 +39,7 @@ return {
           preview = { '', '', '', '', '', '', '', '' },
         },
         -- winblend = 3,
+        preview = vim.api.nvim_win_get_width(0) > 170,
         layout_strategy = "flex", -- Layout style
         layout_config = {
           width = 0.8,
@@ -155,5 +156,6 @@ return {
 
     telescope.load_extension("live_grep_args")
     telescope.load_extension("ui-select")
+    telescope.load_extension("zf-native")
   end,
 }

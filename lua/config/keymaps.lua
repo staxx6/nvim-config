@@ -80,5 +80,8 @@ vim.keymap.set('n', '<leader>9', '<cmd>BufferLineGoToBuffer 9<CR>')
 vim.keymap.set('n', '<leader>$', '<cmd>BufferLineGoToBuffer -1<CR>')
 
 -- Default keys to cycle but this works even for custom sort
-vim.keymap.set('n', '[b', '<cmd>BufferLineCycleNext<CR>')
-vim.keymap.set('n', 'b]', '<cmd>BufferLineCyclePrev<CR>')
+vim.keymap.set('n', '[b', '<cmd>BufferLineCyclePrev<CR>')
+vim.keymap.set('n', ']b', '<cmd>BufferLineCycleNext<CR>')
+
+-- Yank
+vim.keymap.set('n', '<leader>yA', 'ggVG"+y', { desc = 'Yank entire file to system clipboard' })

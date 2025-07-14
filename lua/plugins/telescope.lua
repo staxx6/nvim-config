@@ -17,13 +17,14 @@ return {
     local actions = require("telescope.actions")
     local telescope = require("telescope")
     local lga_actions = require("telescope-live-grep-args.actions")
+    local is_windows = vim.loop.os_uname().sysname == "Windows_NT"
     telescope.setup({
       defaults = {
 
         -- file_sorter = require('telescope.sorters').get_fzf_sorter,
         -- generic_sorter = require('telescope.sorters').get_fzf_sorter,
-        -- file_sorter = require('telescope').extensions.fzf.native_fzf_sorter(),
-        -- generic_sorter = require('telescope').extensions.fzf.native_fzf_sorter(),
+        file_sorter = require('telescope').extensions.fzf.native_fzf_sorter(),
+        generic_sorter = require('telescope').extensions.fzf.native_fzf_sorter(),
 
         prompt_prefix = "  ", -- Icon for the prompt
         selection_caret = " ", -- Icon for the selected file/folder
@@ -156,6 +157,9 @@ return {
 
     telescope.load_extension("live_grep_args")
     telescope.load_extension("ui-select")
-    telescope.load_extension("zf-native")
+    if not is_windows then
+      -- Is it needed with fzf native? File first is here too?
+      -- telescope.load_extension("zf-native")
+    end
   end,
 }

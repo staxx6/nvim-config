@@ -69,6 +69,7 @@ vim.g.mason_shell = "powershell.exe";
 vim.lsp.enable('luals');
 vim.lsp.enable('typescript'); --  Should be suitble for js too
 vim.lsp.enable('json');
+vim.lsp.enable('python');
 
 -- Autocompletion
 --[[

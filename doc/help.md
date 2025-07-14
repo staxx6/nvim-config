@@ -108,6 +108,11 @@ Launch with :Telescope file_browser
 q + Register : Start recording
 q : Leave : End recording
 
+## Window/Split
+
+:sp : Split current buffer
+(telescope) Ctrl + l or j : Create window to the right or down
+
 ### LSP
 
 Ctrl+n or Ctrl+p : Go through completion list

@@ -74,6 +74,8 @@ C-v : Enter block wise visual mode ; You get it
 gv : Reselect last visual selection
 o : Jump to other end of the slection
 
+vit : Select the inner content of HTML/XML Tags
+
 ## Move screen
 
 zz :  Center screen to current cursor position

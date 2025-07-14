@@ -81,7 +81,22 @@ vim.keymap.set('n', '<leader>$', '<cmd>BufferLineGoToBuffer -1<CR>')
 
 -- Default keys to cycle but this works even for custom sort
 vim.keymap.set('n', '[b', '<cmd>BufferLineCyclePrev<CR>')
+vim.keymap.set('n', '<leader>h', '<cmd>BufferLineCyclePrev<CR>')
 vim.keymap.set('n', ']b', '<cmd>BufferLineCycleNext<CR>')
+vim.keymap.set('n', '<leader>l', '<cmd>BufferLineCycleNext<CR>')
 
 -- Yank
 vim.keymap.set('n', '<leader>yA', 'ggVG"+y', { desc = 'Yank entire file to system clipboard' })
+
+-- auto session
+vim.keymap.set('n', '<leader>sl','<cmd>SessionSearch<CR>', { desc = 'Load a session' })
+vim.keymap.set('n', '<leader>ss', function()
+  vim.ui.input({ prompt = 'Session name: ' }, function(input)
+    if input and input ~= "" then
+      vim.cmd("SessionSave " .. input)
+    else
+      print("Session save canceled.")
+    end
+  end)
+end, { desc = 'Save session with a name' })
+vim.keymap.set('n', '<leader>sl','<cmd>SessionSearch<CR>', { desc = 'Load a session' })

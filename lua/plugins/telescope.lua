@@ -23,8 +23,8 @@ return {
 
         -- file_sorter = require('telescope.sorters').get_fzf_sorter,
         -- generic_sorter = require('telescope.sorters').get_fzf_sorter,
-        file_sorter = require('telescope').extensions.fzf.native_fzf_sorter(),
-        generic_sorter = require('telescope').extensions.fzf.native_fzf_sorter(),
+        -- file_sorter = require('telescope').extensions.fzf.native_fzf_sorter(),
+        -- generic_sorter = require('telescope').extensions.fzf.native_fzf_sorter(),
 
         prompt_prefix = "  ", -- Icon for the prompt
         selection_caret = " ", -- Icon for the selected file/folder

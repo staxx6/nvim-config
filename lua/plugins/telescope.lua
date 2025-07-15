@@ -58,12 +58,17 @@ return {
         debounce = 1000,
         mappings = {
           i = {
-            ["<C-l>"] = actions.select_vertical,
-            ["<C-j>"] = actions.select_horizontal,
+            ["<C-s>l"] = actions.select_vertical,
+            ["<C-s>j"] = actions.select_horizontal,
+            ["<C-k>"] = actions.cycle_history_next,
+            ["<C-j>"] = actions.cycle_history_prev,
             -- ["<C-t>"] = actions.select_tab, ? Even needed with bufferline?
           }
         },
-
+        history = {
+          path = vim.fn.stdpath("data") .. '/telescope_history.sqlite3',
+          limit = 100
+        }
       },
       pickers = {
         find_files = {
@@ -91,6 +96,7 @@ return {
           path_display = { 'filename_first' },
         },
         live_grep_args = {
+          path_display = { 'filename_first' },
           auto_quoting = true,
           mappings = { -- extend mappings
             i = {
@@ -120,7 +126,7 @@ return {
               end,
             },
           }
-        }
+        },
       }
     })
 
@@ -157,6 +163,7 @@ return {
 
     telescope.load_extension("live_grep_args")
     telescope.load_extension("ui-select")
+    telescope.load_extension("smart_history")
     if not is_windows then
       -- Is it needed with fzf native? File first is here too?
       -- telescope.load_extension("zf-native")

@@ -4,6 +4,8 @@ require("config.lazy")
 -- keymaps
 require("config.keymaps")
 
+local is_windows = vim.loop.os_uname().sysname == "Windows_NT"
+
 -- general settings
 vim.opt.number = true
 vim.cmd("set expandtab")
@@ -25,6 +27,10 @@ vim.opt.listchars = {
   nbsp = "␣",
 }
 
+if is_windows then
+  vim.g.sqlite_clib_path = "C:/bin/sqlite/sqlite3.dll"
+end
+
 -- swap / undofile / autosave (plugin)
 vim.opt.swapfile = false
 vim.opt.undofile = true
@@ -32,7 +38,7 @@ vim.opt.undofile = true
 -- diff
 if vim.loop.os_uname().sysname == "Windows_NT" then
   vim.g.undotree_DiffCommand = "FC"
-end
+end 
 
 -- underline
 vim.diagnostic.config({

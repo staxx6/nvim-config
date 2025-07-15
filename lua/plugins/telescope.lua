@@ -43,7 +43,7 @@ return {
         preview = vim.api.nvim_win_get_width(0) > 170,
         layout_strategy = "flex", -- Layout style
         layout_config = {
-          width = 0.8,
+          width = 0.9,
           height = 0.8,
           prompt_position = 'bottom',
           preview_cutoff = 1,
@@ -52,8 +52,11 @@ return {
         -- preview = true,
         color_devicons = true,
         file_ignore_patterns = {
+          ".svn",
           "node_modules",
-          ".git"
+          ".git",
+          ".idea",
+          ".vs",
         },
         debounce = 1000,
         mappings = {
@@ -85,6 +88,9 @@ return {
             return { "--hidden", "--smart-case", "--with-filename", "--line-number" }
           end,
         },
+        buffers = {
+          path_display = { 'filename_first' }
+        }
       },
       extensions = {
         ---@module 'frecency'

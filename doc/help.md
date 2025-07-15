@@ -17,6 +17,8 @@ b : Previous word or beginning of word if inside
 % : To matching bracket
 
 ---> Ctrl + o or Ctrl + i : Jump to last/previous position
+Ctrl + d/u : Scroll half screen
+Ctrl + f/b : Scroll full screen
 
 **Buffer list**
 [b or ]b : Go next/prev buffer

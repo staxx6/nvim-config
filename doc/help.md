@@ -14,6 +14,7 @@ f{char} F{char} : Moves the cursor to the first {char} to the (f)right (F)left o
     ; or , : (;)Repeats (,) Repeats opposite direction
 w : Next word
 b : Previous word or beginning of word if inside
+e : To (next) word end
 % : To matching bracket
 
 ---> Ctrl + o or Ctrl + i : Jump to last/previous position
@@ -31,6 +32,7 @@ leader-1-9 : Go to tab @bufferlist
 
 a : Append after cursor
 A : Append on line end
+I : Insert on line beginning
 o (small o): New line below and enters insert mode
 O (big o): New line above and enters insert mode
 yy : Copy line
@@ -47,7 +49,7 @@ g; and g: : Goes through the change list
 **Normal mode**
 
 dd : Delete current line
-diw or daw : delete inner word; delete 'a' word (with whitespace after word)
+diw or daw : delete inner word; delete around a word
 ce : Delete at cursor start to word end; Go in enter mode
 cw : Delete the word under the cursor and go in enter mode
 s : delete char at current cursor position and enters the input mode

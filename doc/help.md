@@ -28,6 +28,9 @@ leader-1-9 : Go to tab @bufferlist
 
 @telescope : see below
 
+Flash - faster navigation in visible buffer
+s : start flash
+
 ## Enter Stuff
 
 a : Append after cursor
@@ -170,3 +173,7 @@ visual + :p : Prints the current visual selection
 :%p or :.p : Prints whole file or current file
 :normal . : Use normal commands. Example: `A;<Esc>` Put ; at end of line. `VG` to select to file end and `:normal .` to place ; on every line
 q: : repeat last command. After `@:` use `@@` to repeat
+
+## oil 
+
+g? : To show oil help

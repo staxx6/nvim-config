@@ -15,6 +15,10 @@ vim.cmd("set shiftwidth=2")
 vim.cmd("set hlsearch") -- highlight search
 vim.cmd("set ignorecase") -- for search
 vim.cmd("set smartcase")
+if is_windows then
+  vim.opt.shell = 'pwsh.exe'
+end
+
 vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions" -- auto-session recommendations
 -- vim.cmd("set statusline=%F")
 vim.api.nvim_set_hl(0, "Whitespace", { fg = "#5c6370" }) -- or any color you prefer

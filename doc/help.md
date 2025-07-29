@@ -55,6 +55,8 @@ cw : Delete the word under the cursor and go in enter mode
 s : delete char at current cursor position and enters the input mode
 r : Replace char. Remove char, enter insert mode, leave insert mode
 
+:%s/toChange/newWord : replace everything in file (% everything; s substitute)
+
 ** Insert mode **
 
 Ctrl + h : Delete one char back (like backspace)
@@ -117,6 +119,8 @@ q : Leave : End recording
 :sp : Split current buffer
 (telescope) Ctrl + l or j : Create window to the right or down
 
+Ctrl + w = : Even the splits
+
 ### LSP
 
 Ctrl+n or Ctrl+p : Go through completion list
@@ -155,3 +159,11 @@ zw : Delete word
 ## Nvim self
 
 :restart : To restart nvim itself for config changes. Not yet in the version.
+
+## Commands
+
+Most following commands can be combined
+:23,45p : Print the range of lines
+visual + :p : Prints the current visual selection
+:/pattern/+1,/pattern2/-1p : Prints the content between the patterns
+:%p or :.p : Prints whole file or current file

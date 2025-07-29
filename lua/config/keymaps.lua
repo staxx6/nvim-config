@@ -85,12 +85,16 @@ vim.keymap.set('n', '<leader>bh', '<cmd>BufferLineCyclePrev<CR>')
 vim.keymap.set('n', ']b', '<cmd>BufferLineCycleNext<CR>')
 vim.keymap.set('n', '<leader>bl', '<cmd>BufferLineCycleNext<CR>')
 
+vim.keymap.set('n', '<leader>tq', ':bd<CR>', { desc = "Close buffer" })
+vim.keymap.set('n', '<leader>tQ', ':bufdo bd<CR>', { desc = "Close all buffers" })
+vim.keymap.set('n', '<leader>tc', ':%bd | e# | bd#<CR>', { desc = "Close all buffers except current" })
+
 -- Yank
 vim.keymap.set('n', '<leader>yA', 'ggVG"+y', { desc = 'Yank entire file to system clipboard' })
 
 -- auto session
-vim.keymap.set('n', '<leader>sl','<cmd>SessionSearch<CR>', { desc = 'Load a session' })
-vim.keymap.set('n', '<leader>ss', function()
+vim.keymap.set('n', '<leader>ssl','<cmd>SessionSearch<CR>', { desc = 'Load a session' })
+vim.keymap.set('n', '<leader>sss', function()
   vim.ui.input({ prompt = 'Session name: ' }, function(input)
     if input and input ~= "" then
       vim.cmd("SessionSave " .. input)
@@ -99,7 +103,7 @@ vim.keymap.set('n', '<leader>ss', function()
     end
   end)
 end, { desc = 'Save session with a name' })
-vim.keymap.set('n', '<leader>sl','<cmd>SessionSearch<CR>', { desc = 'Load a session' })
+vim.keymap.set('n', '<leader>ssl','<cmd>SessionSearch<CR>', { desc = 'Load a session' })
 
 -- Windows/Splits
 vim.keymap.set('n', '<leader>h','<C-w>h', { desc = 'Move to left split window' })
@@ -107,6 +111,11 @@ vim.keymap.set('n', '<leader>j','<C-w>j', { desc = 'Move to below split window' 
 vim.keymap.set('n', '<leader>k','<C-w>k', { desc = 'Move to upper split window' })
 vim.keymap.set('n', '<leader>l','<C-w>l', { desc = 'Move to right split window' })
 
-vim.keymap.set('n', '<leader>sr',':vsplit<CR>', { desc = 'Split current window to right' })
-vim.keymap.set('n', '<leader>sj',':split<CR>', { desc = 'Split current window to bottom' })
+vim.keymap.set('n', '<leader>scl','<cmd>vsplit<CR>', { desc = 'Split current window to right' })
+vim.keymap.set('n', '<leader>scj','<cmd>split<CR>', { desc = 'Split current window to bottom' })
 
+vim.keymap.set('n', '<leader>s=','<C-w>=', { desc = 'Even the splits space' })
+vim.keymap.set('n', '<leader>sh','10<C-w><', { desc = 'Shrink split to left' })
+vim.keymap.set('n', '<leader>sl','10<C-w>>', { desc = 'Grow split to right' })
+vim.keymap.set('n', '<leader>sj','10<C-w>+', { desc = 'Grow the split down' })
+vim.keymap.set('n', '<leader>sk','10<C-w>-', { desc = 'Shrink the split up' })

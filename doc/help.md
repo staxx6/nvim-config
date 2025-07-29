@@ -68,7 +68,7 @@ Ctrl + u : Delete back to start of line
 
 ## Search Stuff
 
-:noh : clear last highlight
+:noh or leader-n : clear last highlight
 
 /TEXT : Search forward
 ?TEXT : Search backwards

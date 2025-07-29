@@ -9,7 +9,7 @@ vim.keymap.set("n", "<leader>rr", ":source $MYVIMRC<CR>", { desc = "Reload Neovi
 vim.keymap.set('n', '<C-s>', ':w<CR>', { desc = 'Save File' })
 vim.keymap.set('i', '<C-s>', '<Esc>:w<CR>a', { desc = 'Save File' })
 vim.keymap.set('n', '<leader-w>', '<Esc>:w<CR>a', { desc = 'Save File 2' })
-vim.keymap.set('n', '<leader-h', ':noh', { desc = 'Clear highlights' })
+vim.keymap.set('n', '<leader>n', ':noh<CR>', { desc = 'Clear highlights' })
 
 -- Move line down
 vim.keymap.set("n", "<C-j>", ":m .+1<CR>==", { desc = "Move line down", silent = true })

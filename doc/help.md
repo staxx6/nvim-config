@@ -163,7 +163,10 @@ zw : Delete word
 ## Commands
 
 Most following commands can be combined
+
 :23,45p : Print the range of lines
 visual + :p : Prints the current visual selection
 :/pattern/+1,/pattern2/-1p : Prints the content between the patterns
 :%p or :.p : Prints whole file or current file
+:normal . : Use normal commands. Example: `A;<Esc>` Put ; at end of line. `VG` to select to file end and `:normal .` to place ; on every line
+q: : repeat last command. After `@:` use `@@` to repeat

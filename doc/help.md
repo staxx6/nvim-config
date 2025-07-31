@@ -60,6 +60,8 @@ r : Replace char. Remove char, enter insert mode, leave insert mode
 
 :%s/toChange/newWord : replace everything in file (% everything; s substitute)
 
+J : Join line from under the cursor to current line
+
 ** Insert mode **
 
 Ctrl + h : Delete one char back (like backspace)
@@ -67,6 +69,8 @@ Ctrl + w : Delete back one word
 Ctrl + u : Delete back to start of line
 
 ## Search Stuff
+
+q/ : Open list with last search commands
 
 :noh or leader-n : clear last highlight
 
@@ -172,7 +176,14 @@ visual + :p : Prints the current visual selection
 :/pattern/+1,/pattern2/-1p : Prints the content between the patterns
 :%p or :.p : Prints whole file or current file
 :normal . : Use normal commands. Example: `A;<Esc>` Put ; at end of line. `VG` to select to file end and `:normal .` to place ; on every line
+
+Use arrows after pressing ":" for last command / history - Enter some characters for filtered browsing like command line
 q: : repeat last command. After `@:` use `@@` to repeat
+
+:!cat % : run a shell command - % is placeholder for filename in vim
+:w | !cat % : Pipe to chain commands in vim
+
+q: : To go to the command history list. Edit it like a normal buffer - which is a normal buffer
 
 ## oil 
 

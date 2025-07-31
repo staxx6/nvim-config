@@ -18,6 +18,7 @@ vim.cmd("set smartcase")
 if is_windows then
   vim.opt.shell = 'pwsh.exe'
 end
+vim.opt.history = 200
 
 vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions" -- auto-session recommendations
 -- vim.cmd("set statusline=%F")

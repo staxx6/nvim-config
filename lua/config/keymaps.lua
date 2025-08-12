@@ -46,6 +46,7 @@ end, { desc = "Live Grep with Args" })
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Help Tags" })
 vim.keymap.set("n", "<leader>km", "<cmd>Telescope keymaps<CR>", { desc = "Search keymaps" })
 vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = 'Find existing buffers' })
+vim.keymap.set('n', '<leader>fm', function() require('telescope.builtin').marks() end, { desc = 'Find marks' })
 
 
 -- Autocomplete
@@ -120,3 +121,25 @@ vim.keymap.set('n', '<leader>sh','10<C-w><', { desc = 'Shrink split to left' })
 vim.keymap.set('n', '<leader>sl','10<C-w>>', { desc = 'Grow split to right' })
 vim.keymap.set('n', '<leader>sj','10<C-w>+', { desc = 'Grow the split down' })
 vim.keymap.set('n', '<leader>sk','10<C-w>-', { desc = 'Shrink the split up' })
+
+-- Harpoon
+local harpoon = require('harpoon')
+harpoon:setup()
+local keymap = vim.keymap.set
+
+-- Add current file
+keymap("n", "<leader>va", function() harpoon:list():add() end, { desc = "Harpoon Add file" })
+
+-- Toggle quick menu
+keymap("n", "<leader>vh", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Harpoon Quick Menu" })
+
+-- Navigate to specific file in list
+keymap("n", "<leader>v1", function() harpoon:list():select(1) end, { desc = "Harpoon file 1" })
+keymap("n", "<leader>v2", function() harpoon:list():select(2) end, { desc = "Harpoon file 2" })
+keymap("n", "<leader>v3", function() harpoon:list():select(3) end, { desc = "Harpoon file 3" })
+keymap("n", "<leader>v4", function() harpoon:list():select(4) end, { desc = "Harpoon file 4" })
+
+-- Previous/Next file
+keymap("n", "<leader>vp", function() harpoon:list():prev() end, { desc = "Harpoon Prev" })
+keymap("n", "<leader>vn", function() harpoon:list():next() end, { desc = "Harpoon Next" })
+-- Harpoon END

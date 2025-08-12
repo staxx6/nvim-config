@@ -18,8 +18,9 @@ e : To (next) word end
 % : To matching bracket
 
 ---> Ctrl + o or Ctrl + i : Jump to last/previous position
-Ctrl + d/u : Scroll half screen
-Ctrl + f/b : Scroll full screen
+Ctrl + d/u : Scroll half screen with cursor
+Ctrl + f/b : Scroll full screen with cursor
+Ctrl + e/y : Scrolls screen up/down without the cursor moving
 
 **Buffer list**
 [b or ]b : Go next/prev buffer
@@ -30,6 +31,13 @@ leader-1-9 : Go to tab @bufferlist
 
 Flash - faster navigation in visible buffer
 s : start flash
+
+Marks - With marks plugin
+Lowercase for buffer only marks. Uppercase for overall marks.
+mx : Set mark x
+m, : Set next aviable alphabetical (lowercase) mark
+dmx or dm- or dm<space>: Delete mark x; all in current line; all in current buffer
+m] or m[ : Move to next/previous mark 
 
 ## Enter Stuff
 
@@ -124,8 +132,8 @@ q : Leave : End recording
 ## Window/Split
 
 :sp : Split current buffer
-(telescope) Ctrl + l or j : Create window to the right or down
 
+(telescope) Ctrl + l or j : Create window to the right or down
 Ctrl + w = : Even the splits
 
 ### LSP

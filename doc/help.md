@@ -138,7 +138,7 @@ Ctrl + w = : Even the splits
 
 ### LSP
 
-Ctrl+n or Ctrl+p : Go through completion list
+(use blink) Ctrl+n or Ctrl+p : Go through completion list
 Control + ] : jump to definition (use control + t to go back).
 Control + x : then Control + o will trigger code completion menu.
 
@@ -151,9 +151,14 @@ grr : lists all the references of the symbol under the cursor.
 gri : lists all the implementations for the symbol under the cursor.
 Control + s : in insert mode displays the function signature of the symbol under the cursor. : Currently overwritten to save
 
+Space + w : Show documentation
+
 #### Blink
 
-Ctrl + y : Accept current completion.
+Ctrl + g : Show completion list
+Ctrl + y : Accept current completion
+Ctrl + e : Close complettion list
+Ctrl + f : Show signature
 
 ### dot command
 

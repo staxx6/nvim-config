@@ -11,6 +11,12 @@ vim.keymap.set('i', '<C-s>', '<Esc>:w<CR>a', { desc = 'Save File' })
 vim.keymap.set('n', '<leader-w>', '<Esc>:w<CR>a', { desc = 'Save File 2' })
 vim.keymap.set('n', '<leader>n', ':noh<CR>', { desc = 'Clear highlights' })
 
+-- buffer
+vim.keymap.set("n", "<leader>ba", "<cmd>%bd|enew<CR>", { desc = "Close all buffers" })
+vim.keymap.set("n", "<leader>bq", function()
+  vim.cmd("bp | bd #")
+end, { desc = "Close current buffer safely" })
+
 -- Move line down
 vim.keymap.set("n", "<C-j>", ":m .+1<CR>==", { desc = "Move line down", silent = true })
 
@@ -56,6 +62,10 @@ vim.keymap.set('n', '<leader>fm', function() require('telescope.builtin').marks(
 vim.keymap.set("n", "<leader>ft", function()
   vim.lsp.buf.format()
 end, { desc = "Format file with lsp"})
+vim.keymap.set("n", "<leader>w", function()
+  vim.lsp.buf.hover({ border = 'rounded', focus = false})
+end, { desc = "LSP hover"})
+
 
 -- oil
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Oil : Open parent directory"})
@@ -143,3 +153,7 @@ keymap("n", "<leader>v4", function() harpoon:list():select(4) end, { desc = "Har
 keymap("n", "<leader>vp", function() harpoon:list():prev() end, { desc = "Harpoon Prev" })
 keymap("n", "<leader>vn", function() harpoon:list():next() end, { desc = "Harpoon Next" })
 -- Harpoon END
+
+-- neo tree
+keymap("n", "<leader>e", function() require("neo-tree.command").execute({ toggle = true, position = "left" }) end, { desc = "Explorer (Neo-tree) toggle" })
+keymap("n", "<leader>fe", function() require("neo-tree.command").execute({ reveal = true, position = "left" }) end, { desc = "Explorer reveal current file" })

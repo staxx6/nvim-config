@@ -3,7 +3,7 @@ return {
   event = "VeryLazy",
   opts = {
     hint_enable = false,      -- disable inline hints (optional)
-    floating_window = true,   -- show as floating window
+    floating_window = false,   -- show as floating window
     handler_opts = {
       border = "rounded"
     }

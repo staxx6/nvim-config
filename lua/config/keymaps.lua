@@ -6,10 +6,13 @@ local builtin = require("telescope.builtin")
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>rr", ":source $MYVIMRC<CR>", { desc = "Reload Neovim Config" })
 
-vim.keymap.set('n', '<C-s>', ':w<CR>', { desc = 'Save File' })
-vim.keymap.set('i', '<C-s>', '<Esc>:w<CR>a', { desc = 'Save File' })
+--vim.keymap.set('n', '<C-s>', ':w<CR>', { desc = 'Save File' })
+--vim.keymap.set('i', '<C-s>', '<Esc>:w<CR>a', { desc = 'Save File' })
 vim.keymap.set('n', '<leader-w>', '<Esc>:w<CR>a', { desc = 'Save File 2' })
 vim.keymap.set('n', '<leader>n', ':noh<CR>', { desc = 'Clear highlights' })
+
+-- Replace
+vim.keymap.set("n", "<leader>rw", ":%s/\\<<C-r><C-w>\\>//g<Left><Left>", { desc = "Replace word under cursor" })
 
 -- buffer
 vim.keymap.set("n", "<leader>ba", "<cmd>%bd|enew<CR>", { desc = "Close all buffers" })

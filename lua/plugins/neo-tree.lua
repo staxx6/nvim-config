@@ -9,6 +9,11 @@ return {
     },
     lazy = false, -- neo-tree will lazily load itself
     opts = {
+      window = {
+        mappings = {
+          ["/"] = "noop"
+        }
+      },
       close_if_last_window = true,
       filesystem = {
         follow_current_file = { enabled = true },  -- springt/markiert aktuelle Datei

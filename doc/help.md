@@ -38,6 +38,8 @@ mx : Set mark x
 m, : Set next aviable alphabetical (lowercase) mark
 dmx or dm- or dm<space>: Delete mark x; all in current line; all in current buffer
 m] or m[ : Move to next/previous mark 
+leader + fm : List all marks
+' or ` : Jump to the mark 
 
 ## Enter Stuff
 
@@ -63,10 +65,13 @@ dd : Delete current line
 diw or daw : delete inner word; delete around a word
 ce : Delete at cursor start to word end; Go in enter mode
 cw : Delete the word under the cursor and go in enter mode
+ctCHAR : Delete `until` exclusive (t/T) the following char. 
 s : delete char at current cursor position and enters the input mode
 r : Replace char. Remove char, enter insert mode, leave insert mode
 
 :%s/toChange/newWord : replace everything in file (% everything; s substitute)
+:%s/:.*/: n.a./ : replace everything after ':' with n.a.
+:10,20s/... : replace between lines
 
 J : Join line from under the cursor to current line
 
@@ -135,6 +140,8 @@ q : Leave : End recording
 
 (telescope) Ctrl + l or j : Create window to the right or down
 Ctrl + w = : Even the splits
+leader + bq : Close current buffer safe
+Ctrl + 6 : Reopen last closed buffer
 
 ### LSP
 

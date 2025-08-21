@@ -61,8 +61,8 @@ return {
         debounce = 1000,
         mappings = {
           i = {
-            ["<C-s>l"] = actions.select_vertical,
-            ["<C-s>j"] = actions.select_horizontal,
+            ["<C-l>"] = actions.select_vertical,
+            ["<C-h>"] = actions.select_horizontal,
             ["<C-k>"] = actions.cycle_history_next,
             ["<C-j>"] = actions.cycle_history_prev,
             -- ["<C-t>"] = actions.select_tab, ? Even needed with bufferline?

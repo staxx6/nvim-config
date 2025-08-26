@@ -208,3 +208,7 @@ q: : To go to the command history list. Edit it like a normal buffer - which is 
 ## oil 
 
 g? : To show oil help
+
+## neo tree
+
+leader + fe : Show current file in tree

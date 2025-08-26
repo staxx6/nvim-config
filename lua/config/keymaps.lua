@@ -130,8 +130,8 @@ vim.keymap.set('n', '<leader>scl','<cmd>vsplit<CR>', { desc = 'Split current win
 vim.keymap.set('n', '<leader>scj','<cmd>split<CR>', { desc = 'Split current window to bottom' })
 
 vim.keymap.set('n', '<leader>s=','<C-w>=', { desc = 'Even the splits space' })
-vim.keymap.set('n', '<leader>sh','10<C-w><', { desc = 'Shrink split to left' })
-vim.keymap.set('n', '<leader>sl','10<C-w>>', { desc = 'Grow split to right' })
+vim.keymap.set('n', '<leader>sh','10<C-w>>', { desc = 'Shrink split to left' })
+vim.keymap.set('n', '<leader>sl','10<C-w><', { desc = 'Grow split to right' })
 vim.keymap.set('n', '<leader>sj','10<C-w>+', { desc = 'Grow the split down' })
 vim.keymap.set('n', '<leader>sk','10<C-w>-', { desc = 'Shrink the split up' })
 

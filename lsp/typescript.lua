@@ -1,5 +1,5 @@
 return {
   cmd = { "typescript-language-server", "--stdio" },
-  filetypes = { "typescript", "javascript" },
-  root_markers = { "tsconfig.json" }
+  filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "html" },
+  root_markers = { "tsconfig.json", "package.json" }
 }

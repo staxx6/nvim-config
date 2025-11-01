@@ -62,17 +62,51 @@ vim.keymap.set('n', '<leader>fm', function() require('telescope.builtin').marks(
 -- vim.keymap.set("i", "<C-f>", "<C-x><C-o>", { noremap = true, silent = true, desc = "Auto completion" })
 
 -- lsp
+-- vim.keymap.set("n", "<leader>ft", function()
+--   vim.lsp.buf.format()
+-- end, { desc = "Format file with lsp"})
+
 vim.keymap.set("n", "<leader>ft", function()
-  vim.lsp.buf.format()
-end, { desc = "Format file with lsp"})
+  local bufnr = vim.api.nvim_get_current_buf()
+
+  -- any attached LSP client with formatting?
+  local has_lsp_fmt = false
+  for _, c in ipairs(vim.lsp.get_clients({ bufnr = bufnr })) do
+    if c.supports_method and c.supports_method("textDocument/formatting") then
+      has_lsp_fmt = true
+      break
+    end
+  end
+
+  if has_lsp_fmt then
+    vim.lsp.buf.format({ async = false })
+    return
+  end
+
+  -- fallback: Prettier (CLI)
+  if vim.fn.executable("prettier") == 1 then
+    -- stdin mode: replaces buffer with Prettier output, uses filename to pick parser
+    local ok, err = pcall(vim.cmd, [[silent keepjumps %!prettier --stdin-filepath %]])
+    if ok then
+      vim.notify("Prettier: formatted buffer", vim.log.levels.INFO)
+    else
+      vim.notify("Prettier failed: " .. tostring(err), vim.log.levels.ERROR)
+    end
+  else
+    vim.notify("No LSP formatter and `prettier` not found in PATH.", vim.log.levels.WARN)
+  end
+end, { desc = "Format (LSP or Prettier)" })
+
+
+
 vim.keymap.set("n", "<leader>w", function()
-  vim.lsp.buf.hover({ border = 'rounded', focus = false})
-end, { desc = "LSP hover"})
+  vim.lsp.buf.hover({ border = 'rounded', focus = false })
+end, { desc = "LSP hover" })
 
 
 -- oil
-vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Oil : Open parent directory"})
-vim.keymap.set("n", "<space>-", require("oil").toggle_float, { desc = "Oil : Open parent directory FLOAT"})
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Oil : Open parent directory" })
+vim.keymap.set("n", "<space>-", require("oil").toggle_float, { desc = "Oil : Open parent directory FLOAT" })
 
 -- git
 vim.keymap.set('n', '<leader>gh', function()
@@ -108,7 +142,7 @@ vim.keymap.set('n', '<leader>tc', ':%bd | e# | bd#<CR>', { desc = "Close all buf
 vim.keymap.set('n', '<leader>yA', 'ggVG"+y', { desc = 'Yank entire file to system clipboard' })
 
 -- auto session
-vim.keymap.set('n', '<leader>ssl','<cmd>SessionSearch<CR>', { desc = 'Load a session' })
+vim.keymap.set('n', '<leader>ssl', '<cmd>SessionSearch<CR>', { desc = 'Load a session' })
 vim.keymap.set('n', '<leader>sss', function()
   vim.ui.input({ prompt = 'Session name: ' }, function(input)
     if input and input ~= "" then
@@ -118,22 +152,22 @@ vim.keymap.set('n', '<leader>sss', function()
     end
   end)
 end, { desc = 'Save session with a name' })
-vim.keymap.set('n', '<leader>ssl','<cmd>SessionSearch<CR>', { desc = 'Load a session' })
+vim.keymap.set('n', '<leader>ssl', '<cmd>SessionSearch<CR>', { desc = 'Load a session' })
 
 -- Windows/Splits
-vim.keymap.set('n', '<leader>h','<C-w>h', { desc = 'Move to left split window' })
-vim.keymap.set('n', '<leader>j','<C-w>j', { desc = 'Move to below split window' })
-vim.keymap.set('n', '<leader>k','<C-w>k', { desc = 'Move to upper split window' })
-vim.keymap.set('n', '<leader>l','<C-w>l', { desc = 'Move to right split window' })
+vim.keymap.set('n', '<leader>h', '<C-w>h', { desc = 'Move to left split window' })
+vim.keymap.set('n', '<leader>j', '<C-w>j', { desc = 'Move to below split window' })
+vim.keymap.set('n', '<leader>k', '<C-w>k', { desc = 'Move to upper split window' })
+vim.keymap.set('n', '<leader>l', '<C-w>l', { desc = 'Move to right split window' })
 
-vim.keymap.set('n', '<leader>scl','<cmd>vsplit<CR>', { desc = 'Split current window to right' })
-vim.keymap.set('n', '<leader>scj','<cmd>split<CR>', { desc = 'Split current window to bottom' })
+vim.keymap.set('n', '<leader>scl', '<cmd>vsplit<CR>', { desc = 'Split current window to right' })
+vim.keymap.set('n', '<leader>scj', '<cmd>split<CR>', { desc = 'Split current window to bottom' })
 
-vim.keymap.set('n', '<leader>s=','<C-w>=', { desc = 'Even the splits space' })
-vim.keymap.set('n', '<leader>sh','10<C-w>>', { desc = 'Shrink split to left' })
-vim.keymap.set('n', '<leader>sl','10<C-w><', { desc = 'Grow split to right' })
-vim.keymap.set('n', '<leader>sj','10<C-w>+', { desc = 'Grow the split down' })
-vim.keymap.set('n', '<leader>sk','10<C-w>-', { desc = 'Shrink the split up' })
+vim.keymap.set('n', '<leader>s=', '<C-w>=', { desc = 'Even the splits space' })
+vim.keymap.set('n', '<leader>sh', '10<C-w>>', { desc = 'Shrink split to left' })
+vim.keymap.set('n', '<leader>sl', '10<C-w><', { desc = 'Grow split to right' })
+vim.keymap.set('n', '<leader>sj', '10<C-w>+', { desc = 'Grow the split down' })
+vim.keymap.set('n', '<leader>sk', '10<C-w>-', { desc = 'Shrink the split up' })
 
 -- Harpoon
 local harpoon = require('harpoon')
@@ -158,5 +192,7 @@ keymap("n", "<leader>vn", function() harpoon:list():next() end, { desc = "Harpoo
 -- Harpoon END
 
 -- neo tree
-keymap("n", "<leader>e", function() require("neo-tree.command").execute({ toggle = true, position = "left" }) end, { desc = "Explorer (Neo-tree) toggle" })
-keymap("n", "<leader>fe", function() require("neo-tree.command").execute({ reveal = true, position = "left" }) end, { desc = "Explorer reveal current file" })
+keymap("n", "<leader>e", function() require("neo-tree.command").execute({ toggle = true, position = "left" }) end,
+  { desc = "Explorer (Neo-tree) toggle" })
+keymap("n", "<leader>fe", function() require("neo-tree.command").execute({ reveal = true, position = "left" }) end,
+  { desc = "Explorer reveal current file" })

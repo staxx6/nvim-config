@@ -142,17 +142,16 @@ vim.keymap.set('n', '<leader>tc', ':%bd | e# | bd#<CR>', { desc = "Close all buf
 vim.keymap.set('n', '<leader>yA', 'ggVG"+y', { desc = 'Yank entire file to system clipboard' })
 
 -- auto session
-vim.keymap.set('n', '<leader>ssl', '<cmd>SessionSearch<CR>', { desc = 'Load a session' })
 vim.keymap.set('n', '<leader>sss', function()
   vim.ui.input({ prompt = 'Session name: ' }, function(input)
     if input and input ~= "" then
-      vim.cmd("SessionSave " .. input)
+      vim.cmd("AutoSession save " .. input)
     else
       print("Session save canceled.")
     end
   end)
 end, { desc = 'Save session with a name' })
-vim.keymap.set('n', '<leader>ssl', '<cmd>SessionSearch<CR>', { desc = 'Load a session' })
+vim.keymap.set('n', '<leader>ssl', '<cmd>AutoSession search<CR>', { desc = 'Load a session' })
 
 -- Windows/Splits
 vim.keymap.set('n', '<leader>h', '<C-w>h', { desc = 'Move to left split window' })

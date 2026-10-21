@@ -81,6 +81,12 @@ Ctrl + h : Delete one char back (like backspace)
 Ctrl + w : Delete back one word
 Ctrl + u : Delete back to start of line
 
+** Visual mode **
+
+> : Ident selected lines to right
+< : Ident selected lines to left
+gv : To ident again last idented lines
+
 ## Search Stuff
 
 q/ : Open list with last search commands

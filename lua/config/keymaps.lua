@@ -143,7 +143,7 @@ vim.keymap.set('n', '<leader>yA', 'ggVG"+y', { desc = 'Yank entire file to syste
 
 -- auto session
 vim.keymap.set('n', '<leader>sss', function()
-  vim.ui.input({ prompt = 'Session name: ' }, function(input)
+  vim.ui.input({ prompt = 'Session name (NO SPACE!)): ' }, function(input)
     if input and input ~= "" then
       vim.cmd("AutoSession save " .. input)
     else
@@ -151,6 +151,15 @@ vim.keymap.set('n', '<leader>sss', function()
     end
   end)
 end, { desc = 'Save session with a name' })
+vim.keymap.set('n', '<leader>ssd', function()
+  vim.ui.input({ prompt = 'Session name to delete: ' }, function(input)
+    if input and input ~= "" then
+      vim.cmd("AutoSession delete " .. input)
+    else
+      print("Session delte canceled.")
+    end
+  end)
+end, { desc = 'Delete session with a name' })
 vim.keymap.set('n', '<leader>ssl', '<cmd>AutoSession search<CR>', { desc = 'Load a session' })
 
 -- Windows/Splits

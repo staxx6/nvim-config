@@ -12,6 +12,14 @@ return {
     enabled = true,
     suppressed_dirs = { '~/', '~/Projects', '~/Downloads', '/' },
 
+    pre_save_cmds = { 'Neotree close' },
+    pre_restore_cmds = { 'Neotree close' },
+    post_restore_cmds = {
+      function()
+        require('neo-tree.ui.renderer').clean_invalid_neotree_buffers(true)
+      end,
+    },
+
     session_lens = {
       mappings = {
         delete_session = { "i", "<C-D>" },
